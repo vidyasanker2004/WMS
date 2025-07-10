@@ -1,0 +1,47 @@
+<div class="form-container">
+  <h2>Edit state</h2>
+  <form [formGroup]="stateForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">state Name</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="stateForm.get('name')?.invalid && stateForm.get('name')?.touched" 
+           class="error-message">
+        <span *ngIf="stateForm.get('name')?.errors?.['required']">
+          Name is required
+        </span>
+        <span *ngIf="stateForm.get('name')?.errors?.['minlength']">
+          Must be at least 3 characters
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="code">state Code</label>
+      <input type="text" id="code" formControlName="code" maxlength="3">
+      <div *ngIf="stateForm.get('code')?.invalid && stateForm.get('code')?.touched" 
+           class="error-message">
+        <span *ngIf="stateForm.get('code')?.errors?.['required']">
+          Code is required
+        </span>
+        <span *ngIf="stateForm.get('code')?.errors?.['maxlength']">
+          Maximum 3 characters
+        </span>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" 
+              routerLink="/home/states" 
+              class="btn btn-secondary"
+              [disabled]="isSubmitting">
+        Cancel
+      </button>
+      <button type="submit" 
+              class="btn btn-primary"
+              [disabled]="stateForm.invalid || isSubmitting">
+        <span *ngIf="!isSubmitting">Update</span>
+        <span *ngIf="isSubmitting">Saving...</span>
+      </button>
+    </div>
+  </form>
+</div>

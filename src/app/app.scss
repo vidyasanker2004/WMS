@@ -1,0 +1,336 @@
+// Variables
+$primary-color: #1f8b4b;
+$secondary-color: #6c757d;
+$error-color: #e63946;
+$border-color: #e0e0e0;
+$focus-color: #007bff;
+$background-light: #5183e6;
+$text-dark: #222;
+$text-light: #6c757d;
+
+// Base styles
+.common-form-container {
+  max-width: 100%; // Reduced max-width for better 2-column layout
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+
+.form-title {
+  background-color: #a5c5e7;
+  margin: 0 0 1rem;
+  padding-left: 5px;
+  color: $text-dark;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+// Form section styling
+.form-section {
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  padding: 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: $text-dark;
+}
+
+// Form grid layout - 2 columns
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  
+}
+
+.form-field {
+  margin-bottom: 0.75rem;
+  padding: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: $text-dark;
+  }
+
+  input, select, textarea {
+    width: 60%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    font-size: 0.875rem;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: $focus-color;
+      outline: 0;
+      box-shadow: 0 0 0 0.15rem rgba($focus-color, 0.2);
+    }
+  }
+
+  textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+
+  &.full-width {
+    grid-column: 1 / -1;
+  }
+
+  &.checkbox-field {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 0.5rem;
+    }
+
+    label {
+      margin-bottom: 0;
+    }
+  }
+  .error-message {
+      color: #e74c3c;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+}
+}
+// Required field indicator
+.required label::after {
+  content: ' *';
+  color: $error-color;
+}
+
+// Phone input styling
+.phone-input {
+  display: flex;
+  gap: 0.5rem;
+
+  select {
+    flex: 0 0 70px;
+  }
+
+  input {
+    flex: 1;
+  }
+}
+
+// File input hint
+.file-hint {
+  display: block;
+  font-size: 0.75rem;
+  color: $text-light;
+  margin-top: 0.25rem;
+}
+
+// Form actions
+.form-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  padding-left: 10px;
+
+  .btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 3px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &.btn-primary {
+      background-color: $primary-color;
+      color: rgb(0, 0, 0);
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+
+      &:disabled {
+        background-color: lighten($primary-color, 30%);
+        cursor: not-allowed;
+      }
+    }
+
+    &.btn-secondary {
+      background-color: $secondary-color;
+      color: rgb(255, 255, 255);
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+//for table view
+.common-list {
+
+  border-top: solid;
+  border-color: #bdbdbd;
+  background-color: #ffffff;
+  border-width: 2px;
+
+  &:hover{
+    transition-duration: 1s;
+    background-color: #f4f9fd;
+  }
+  
+  h2 {
+    color: #333;
+    font-size: 18px;
+    padding: 10px;
+    background-color: #c2d6eb;
+  }
+  
+  .header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .actions {
+    margin-bottom: 0;
+    
+    .btn-primary {
+      margin: 10px 10px 10px;
+      background-color: #449bf8;
+      color: rgb(0, 0, 0);
+      padding: 8px 16px ;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+    }
+  }
+  .table-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    
+    .entries-dropdown {
+      select {
+        padding: 6px 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        margin: 0 5px;
+      }
+    }
+    
+    .search-box {
+      input {
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        width: 250px;
+      }
+    }
+  }
+  
+.table {
+      margin-top: 5px;
+    width: 100%;
+    border-collapse: collapse;
+    
+    th, td {
+      padding: 10px 10px;
+      text-align: left;
+      border-bottom: 1px solid #cecece;
+
+      
+    }
+    
+      th {
+      padding: 10px 10px;
+      background-color: #c2d6eb;
+      font-weight: 600;
+    }
+    
+    /* Even rows */
+    tr:nth-child(even) td {
+      background-color: #ffffff;
+    }
+    
+    /* Odd rows */
+    tr:nth-child(odd) td {
+      background-color: #f2f2f2; /* or any light color you prefer */
+    }
+    tr:hover td{
+      background-color: #458989;
+    }
+
+    
+    .btn {
+      margin-right: 5px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+      
+      &-edit {
+        background-color: #ffc107;
+        color: #212529;
+        
+        &:hover {
+          background-color: #e0a800;
+        }
+      }
+      
+      &-delete {
+        background-color: #dc3545;
+        color: white;
+        
+        &:hover {
+          background-color: #c82333;
+        }
+      }
+    }
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    
+    .btn-pagination {
+      margin-right: 5px;
+      padding: 6px 12px;
+      margin-left: 5px;
+      background-color: #a9d0f7;
+      border: 1px solid #ddd;
+      color: #1a1a1a;
+      
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      
+      &:not(:disabled):hover {
+        background-color: #e9ecef;
+      }
+    }
+  }
+}

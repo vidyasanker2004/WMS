@@ -1,0 +1,41 @@
+<div class="common-list">
+  <h2>Countries</h2>
+  <div class="actions">
+    <a routerLink="/home/countries/create" class="btn btn-primary">
+      New
+    </a>
+  </div>
+  
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Actions</th>
+          <th>Name</th>
+          <th>Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="isLoading">
+          <td colspan="4" class="text-center">Loading countries...</td>
+        </tr>
+        <tr *ngFor="let country of countries">
+          <td class="actions">
+            <button (click)="editCountry(country.id)" class="btn btn-sm btn-edit">
+              Edit
+            </button>
+            <button (click)="deleteCountry(country.id)" class="btn btn-sm btn-delete">
+              Delete
+            </button>
+          </td>
+          <td>{{ country.countryName }}</td>
+          <td>{{ country.countryCode }}</td>
+          
+        </tr>
+        <tr *ngIf="!isLoading && countries.length === 0">
+          <td colspan="4" class="text-center">No countries found</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

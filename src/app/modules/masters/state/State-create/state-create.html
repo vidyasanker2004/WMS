@@ -1,0 +1,28 @@
+<div class="common-form-container">
+  <h2 class="form-title">Create New Country</h2>
+  <form [formGroup]="stateForm" (ngSubmit)="onSubmit()">
+    <div class="form-grid">
+    <div class="form-field">
+      <label for="name">State Name</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="stateForm.get('name')?.invalid && stateForm.get('name')?.touched" 
+           class="error-message">
+        Name is required and must be at least 3 characters
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="code">State Code</label>
+      <input type="text" id="code" formControlName="code" maxlength="3">
+      <div *ngIf="stateForm.get('code')?.invalid && stateForm.get('code')?.touched" 
+           class="error-message">
+        Code is required (max 3 characters)
+      </div>
+    </div>
+    </div>
+    <div class="form-actions">
+      <button type="button" routerLink="/home/states" class="btn btn-secondary">Cancel</button>
+      <button type="submit" [disabled]="stateForm.invalid" class="btn btn-primary">Create</button>
+    </div>
+  </form>
+</div>
