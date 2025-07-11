@@ -40,8 +40,8 @@ export class StateEditComponent implements OnInit {
       .subscribe({
         next: (state) => {
           this.stateForm.patchValue({
-            name: state.name,
-            code: state.code
+            name: state.stateName,
+            code: state.stateCode
           });
         },
         error: (err: Error) => {

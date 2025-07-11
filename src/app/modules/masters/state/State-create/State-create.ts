@@ -23,8 +23,9 @@ export class StateCreateComponent {
   ) {}
 
    stateForm = this.FromBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(3)]],
-    code: ['', [Validators.required, Validators.maxLength(3)]]
+    countryName: ['', [Validators.required, Validators.minLength(3)]],
+    stateName: ['', [Validators.required, Validators.minLength(3)]],
+    stateCode: ['', [Validators.required, Validators.maxLength(3)]]
   });
 
   onSubmit() {

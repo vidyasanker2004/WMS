@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' }) 
 export default class MockStateService {
   private mockStates: State[] = [
-    { id: 1, name: 'California', code: 'CA' },
-    { id: 2, name: 'Texas', code: 'TX' },
-    { id: 3, name: 'New York', code: 'NY' }
+    { id: 1, countryName: '', stateName: 'California', stateCode: 'CA' },
+    { id: 2, countryName: '', stateName: 'Texas', stateCode: 'TX' },
+    { id: 3, countryName: '', stateName: 'New York', stateCode: 'NY' }
   ];
 
   getStates() {

@@ -1,0 +1,1 @@
+import{$a as o,Ja as n,ab as a,ob as i}from"./chunk-KDF75F7V.js";var p=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=n({type:t,selectors:[["app-edit-company"]],decls:2,vars:0,template:function(e,s){e&1&&(o(0,"p"),i(1,"edit-company works!"),a())},encapsulation:2})};export{p as EditCompany};

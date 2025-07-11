@@ -4,8 +4,13 @@
     <div class="form-grid">
     <div class="form-field">
       <label for="name">State Name</label>
-      <input type="text" id="name" formControlName="name">
-      <div *ngIf="stateForm.get('name')?.invalid && stateForm.get('name')?.touched" 
+      <input type="text" id="name" formControlName="countryName">
+      <div *ngIf="stateForm.get('countryName')?.invalid && stateForm.get('countryName')?.touched" 
+           class="error-message">
+        Name is required and must be at least 3 characters
+      </div>
+      <input type="text" id="stateName" formControlName="stateName">
+      <div *ngIf="stateForm.get('stateName')?.invalid && stateForm.get('stateName')?.touched" 
            class="error-message">
         Name is required and must be at least 3 characters
       </div>
@@ -13,8 +18,8 @@
 
     <div class="form-field">
       <label for="code">State Code</label>
-      <input type="text" id="code" formControlName="code" maxlength="3">
-      <div *ngIf="stateForm.get('code')?.invalid && stateForm.get('code')?.touched" 
+      <input type="text" id="stateCode" formControlName="stateCode" maxlength="3">
+      <div *ngIf="stateForm.get('stateCode')?.invalid && stateForm.get('stateCode')?.touched" 
            class="error-message">
         Code is required (max 3 characters)
       </div>

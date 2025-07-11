@@ -1,16 +1,17 @@
 export interface mockStates {
 stateName: any;
   id: number;
-  name: string;
-  code: string;
+  countryName: string;
+  stateCode: string;
   // Add other properties as needed
 }
 
 // state.interface.ts
 export interface State {
+  countryName: string;
   id: number;
-  name: string;
-  code: string;
+  stateName: string;
+  stateCode: string;
   isDelete?: boolean;
   createdBy?: number | null;
   createdDate?: string;
