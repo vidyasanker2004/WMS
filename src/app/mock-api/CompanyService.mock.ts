@@ -78,7 +78,7 @@ export class CompanyServiceMock {
     );
   }
 
-  updateCompany(id: string, updates: Partial<Company>): Observable<Company> {
+  updateCompany(id: string, updates: Partial<Company> | FormData): Observable<Company> {
     const index = this.companies.findIndex(c => c.id === id);
     if (index === -1) {
       return throwError(() => new Error('Company not found'));

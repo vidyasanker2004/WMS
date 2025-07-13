@@ -36,7 +36,7 @@ export class CompanyService {
     }).pipe(catchError(this.handleError));
   }
 
-  updateCompany(id: string, updates: Partial<Company>): Observable<Company> {
+  updateCompany(id: string, updates: Partial<Company> | FormData): Observable<Company> {
     return this.http.patch<Company>(`${this.apiUrl}/${id}`, updates)
       .pipe(catchError(this.handleError));
   }
