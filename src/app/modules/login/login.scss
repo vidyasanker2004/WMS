@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #cdf7cd;
+  background-color: #b5e6cd !important;
   padding: 20px;
 
   .login-form {
@@ -70,4 +70,26 @@
       margin-top: 1rem;
     }
   }
+}
+
+
+.loginbox {
+    width: 40%;
+    height: auto; /*45%;*/
+    background-color: #fff; /*margin:0 auto;*/
+    display: table;
+    position: relative;
+    top: 30%;
+    left: 30%;
+    overflow: auto;
+    padding:10px 5px;
+}
+
+.login-main-box {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
