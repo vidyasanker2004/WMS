@@ -1,7 +1,7 @@
 <div class="common-form-container">
   <h2 class="form-title">Edit Company</h2>
   
-  <form [formGroup]="companyForm" (ngSubmit)="onSubmit()" class="company-form-wrapper">
+  <form [formGroup]="companyForm" (ngSubmit)="onSubmit()" class="company-form">
       
       <div *ngIf="isLoading" class="loading-overlay">
         <div class="loading-spinner"></div>
@@ -9,12 +9,12 @@
       </div>
       
       <div class="form-grid">
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="companyName">Company Name</label>
           <input type="text" id="companyName" formControlName="companyName" placeholder="Enter company name">
         </div>
 
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="companyCode">Company Code</label>
           <input type="text" id="companyCode" formControlName="companyCode" placeholder="Enter company code">
         </div>
@@ -24,22 +24,22 @@
           <label for="thirdPartyLogistics">3rd Party Logistics (3PL) Co</label>
         </div>
 
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="address">Address</label>
           <input type="text" id="address" formControlName="address" placeholder="Enter address">
         </div>
 
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="address1">Address1</label>
           <input type="text" id="address1" formControlName="address1" placeholder="Enter address">
         </div>
 
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="city">City</label>
           <input type="text" id="city" formControlName="city" placeholder="Enter city">
         </div>
 
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="country">Country</label>
           <select id="country" formControlName="country">
             <option value="">Select</option>
@@ -49,7 +49,7 @@
           </select>
         </div>
 
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="state">State</label>
           <select id="state" formControlName="state">
             <option value="">Select</option>
@@ -59,19 +59,19 @@
           </select>
         </div>
 
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="pin">Pin</label>
           <input type="text" id="pin" formControlName="pin" placeholder="Enter pin code">
         </div>
 
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="email">Email ID</label>
           <input type="email" id="email" formControlName="email" placeholder="Enter email">
         </div>
 
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="phone">Phone</label>
-          <div class="phone-input-wrapper">
+          <div class="phone-input">
             <select formControlName="phonePrefix">
               <option value="+91">+91</option>
               <option value="+1">+1</option>
@@ -80,19 +80,19 @@
           </div>
         </div>
         
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="contactPartner">Contact Person</label>
           <input type="text" id="contactPartner" formControlName="contactPartner" placeholder="Enter contact person">
         </div>
 
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="contactEmail">CP Email</label>
           <input type="email" id="contactEmail" formControlName="contactEmail" placeholder="Enter contact email">
         </div>
 
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="mobileNo">CP Mobile No</label>
-          <div class="phone-input-wrapper">
+          <div class="phone-input">
             <select formControlName="mobilePrefix">
               <option value="+91">+91</option>
               <option value="+1">+1</option>
@@ -106,7 +106,7 @@
           <input type="url" id="website" formControlName="website" placeholder="Enter website URL">
         </div>
     
-        <div class="form-field required-field">
+        <div class="form-field required">
           <label for="baseCurrency">Base Currency</label>
           <select id="baseCurrency" formControlName="baseCurrency">
             <option value="">Select</option>
@@ -140,19 +140,19 @@
           <input type="date" id="cstDate" formControlName="cstDate" placeholder="dd/MM/yyyy">
         </div>
 
-        <div class="form-field full-width-field">
+        <div class="form-field full-width">
           <label for="companyLogo">Company Logo</label>
           <input type="file" id="companyLogo" (change)="onFileChange($event)" accept="image/*">
-          <span class="file-hint-text">Image size ≤ 1MB, 600x600 pixels</span>
+          <span class="file-hint">Image size ≤ 1MB, 600x600 pixels</span>
         </div>
       </div>    
 
     <div class="form-actions">
-      <button type="submit" class="btn primary-btn" [disabled]="(!companyForm.valid) || isUpdating">
+      <button type="submit" class="btn btn-primary" [disabled]="(!companyForm.valid) || isUpdating">
         <span *ngIf="!isUpdating">Update</span>
         <span *ngIf="isUpdating">Updating...</span>
       </button>
-      <button type="button" class="btn secondary-btn"routerLink="/home/company">Exit</button>
+      <button type="button" class="btn btn-secondary"routerLink="/home/company">Exit</button>
     </div>
   </form>
 </div>
