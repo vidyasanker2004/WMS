@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   ];
   
   masterLinks = [
-    /* { path: '/home/company', title: 'Company' }, */
+    { path: '/home/company', title: 'Company' },
     { path: '/home/countries', title: 'Countries' },
     { path: '/home/states', title: 'States' }
   ];
@@ -40,12 +40,17 @@ export class HomeComponent implements OnInit {
       this.username = user?.username || null;
     });
 
+    // Initial check for current route
+    const initialUrl = this.router.url;
+    this.showHomeContent = initialUrl === '/home' || initialUrl === '/';
+
     // Subscribe to route changes
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: any) => {
-      // Hide home content if we're not on the home route
-      this.showHomeContent = event.url === '/home' || event.url === '/';
+    ).subscribe((event: NavigationEnd) => {
+      // Hide home content if we're not exactly on the home route
+      const url = event.urlAfterRedirects || event.url;
+      this.showHomeContent = url === '/home' || url === '/';
     });
   }
 

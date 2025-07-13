@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { CompanyService } from '../company.service';
+import { CompanyServiceMock } from '../../../../mock-api/CompanyService.mock';
+import { Company } from '../company.model';
 
 @Component({
   selector: 'app-list-company',
@@ -14,14 +16,14 @@ import { CompanyService } from '../company.service';
 export class ListCompany implements OnInit {
   isLoading: boolean = true;
   isDeleting: boolean = false;
-  companies: any[] = []; // Original company data
+  companies: Company[] = []; // Original company data
   filteredCompanies: any[] = []; // Filtered company data for display
   currentPage: number = 1;
   itemsPerPage: number = 10;
   searchQuery: string = '';
 
   constructor(
-    private companyService: CompanyService,
+    private companyService: CompanyServiceMock,
     private router: Router
   ) {}
 

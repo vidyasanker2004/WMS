@@ -2,7 +2,6 @@
   <h2 class="form-title">Company Header</h2>
   
   <form [formGroup]="companyForm" (ngSubmit)="onSubmit()" class="company-form">
-    <fieldset class="form-section">
       
       
       <div class="form-grid">
@@ -139,11 +138,10 @@
           <span class="file-hint">Image size ≤ 1MB, 600x600 pixels</span>
         </div>
       </div>    
-    </fieldset>
 
     <div class="form-actions">
-      <button type="submit" class="btn primary" [disabled]="!companyForm.valid">Submit</button>
-      <button type="button" class="btn secondary">Exit</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!companyForm.valid">Submit</button>
+      <button type="button" routerLink="/home/company" class="btn btn-secondary">Exit</button>
     </div>
   </form>
 </div>
