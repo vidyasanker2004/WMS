@@ -18,10 +18,11 @@ export class CreateCompany {
   countries: string[] = ['India', 'USA', 'UK', 'Canada'];
   states: string[] = ['Karnataka', 'California', 'New York', 'Texas'];
   isLoading = false;
+  
 
   constructor(
     private fb: FormBuilder,
-    private companyService: CompanyServiceMock,
+    private companyService: CompanyService,//CompanyServiceMock
     private router: Router
   ) {
     this.companyForm = this.fb.group({

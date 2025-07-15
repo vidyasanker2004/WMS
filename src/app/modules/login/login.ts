@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private auth: MockAuthService,
+    private auth: AuthService,//MockAuthService
     private router: Router
   ) {}
 

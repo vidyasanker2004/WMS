@@ -1,13 +1,13 @@
 <div class="common-list">
-  <h2>Company Master</h2>
+  <h2>User Master</h2>
   
   <div class="header-controls">
     <div class="actions">
-      <a routerLink="/home/company/create" class="btn btn-primary">New</a>
+      <a routerLink="/home/user/create" class="btn btn-primary">New</a>
     </div>
     
     <div class="table-info">
-      Showing 1 to {{companies.length}} of {{companies.length}} entries
+      Showing 1 to {{users.length}} of {{users.length}} entries
     </div>
   </div>
 
@@ -30,7 +30,7 @@
     <button class="btn btn-pagination" [disabled]="currentPage === 1" (click)="previousPage()">
       Previous
     </button>
-    <button class="btn btn-pagination" [disabled]="currentPage * itemsPerPage >= companies.length" (click)="nextPage()">
+    <button class="btn btn-pagination" [disabled]="currentPage * itemsPerPage >= users.length" (click)="nextPage()">
       Next
     </button>
   </div>
@@ -40,35 +40,36 @@
       <thead>
         <tr>
           <th>Action</th>
-          <th>Company Name</th>
-          <th>Company Code</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Pin</th>
-          <th>Country</th>
+          <th>User Name</th>
+          <th>User Code</th>
+          <th>User ID</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngIf="isLoading">
           <td colspan="7" class="text-center">Loading companies...</td>
         </tr>
-        <tr *ngFor="let company of filteredCompanies">
+        <tr *ngFor="let users of filteredUsers">
           <td class="actions">
-            <button (click)="editCompany(company.id)" class="btn btn-sm btn-edit">
+            <button (click)="editUser(users.id)" class="btn btn-sm btn-edit">
               Edit
             </button>
-            <button (click)="deleteCompany(company.id)" class="btn btn-sm btn-delete">
+            <button (click)="deleteUser(users.id)" class="btn btn-sm btn-delete">
               Delete
             </button>
           </td>
-          <td>{{ company.name }}</td>
-          <td>{{ company.code }}</td>
-          <td>{{ company.city }}</td>
-          <td>{{ company.stateId }}</td>
-          <td>{{ company.pin }}</td>
-          <td>{{ company.countryId }}</td>
+          <td>{{ users.username }}</td>
+          <td>{{ users.userCode }}</td>
+          <td>{{ users.userID }}</td>
+          <td>
+            <button  class="btn btn-sm ">
+              Activate
+            </button>
+          </td>
+          
         </tr>
-        <tr *ngIf="!isLoading && filteredCompanies.length === 0">
+        <tr *ngIf="!isLoading && filteredUsers.length === 0">
           <td colspan="7" class="text-center">No companies found</td>
         </tr>
       </tbody>

@@ -3,13 +3,13 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
-import { Company } from './company.model';
+import { User } from './users.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CompanyService {
-  private apiUrl = `${environment.apiUrl}/Company`; 
+export class UserService {
+  private apiUrl = `${environment.apiUrl}/users`; 
 
   constructor(private http: HttpClient) {}
 
@@ -18,30 +18,30 @@ export class CompanyService {
     return throwError(() => new Error('Something went wrong. Please try again later.'));
   }
 
-  getCompanies(): Observable<Company[]> {
-    return this.http.get<Company[]>(this.apiUrl)
+  getCompanies(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrl)
       .pipe(catchError(this.handleError));
   }
 
-  getCompany(id: string): Observable<Company> {
-    return this.http.get<Company>(`${this.apiUrl}/${id}`)
+  getUser(id: string): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/${id}`)
       .pipe(catchError(this.handleError));
   }
 
-  createCompany(companyData: FormData | Company): Observable<Company> {
-    return this.http.post<Company>(this.apiUrl, companyData, {
+  createUser(UserData: FormData | User): Observable<User> {
+    return this.http.post<User>(this.apiUrl, UserData, {
       headers: {
         // FormData will set its own content-type with boundary
       }
     }).pipe(catchError(this.handleError));
   }
 
-  updateCompany(id: string, updates: Partial<Company> | FormData): Observable<Company> {
-    return this.http.patch<Company>(`${this.apiUrl}/${id}`, updates)
+  updateUser(id: string, updates: Partial<User> | FormData): Observable<User> {
+    return this.http.patch<User>(`${this.apiUrl}/${id}`, updates)
       .pipe(catchError(this.handleError));
   }
 
-  deleteCompany(id: string): Observable<void> {
+  deleteUser(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`)
       .pipe(catchError(this.handleError));
   }

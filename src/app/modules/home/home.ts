@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   
   masterLinks = [
     { path: '/home/company', title: 'Company' },
+    /* { path: '/home/user', title: 'users' }, */
     { path: '/home/countries', title: 'Countries' },
     { path: '/home/states', title: 'States' }
   ];

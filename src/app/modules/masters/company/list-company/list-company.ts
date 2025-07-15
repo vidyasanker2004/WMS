@@ -23,7 +23,7 @@ export class ListCompany implements OnInit {
   searchQuery: string = '';
 
   constructor(
-    private companyService: CompanyServiceMock,
+    private companyService: CompanyService, // Use CompanyServiceMock for testing
     private router: Router
   ) {}
 
@@ -32,19 +32,25 @@ export class ListCompany implements OnInit {
   }
 
   loadCompanies() {
-    this.isLoading = true;
-    this.companyService.getCompanies().subscribe({
-      next: (data: any[]) => {
-        this.companies = data;
-        this.filteredCompanies = [...data];
-        this.isLoading = false;
-      },
-      error: (error: any) => {
-        console.error('Error loading companies:', error);
-        this.isLoading = false;
+  this.isLoading = true;
+  this.companyService.getCompanies().subscribe({
+    next: (response: any) => { 
+      const result = Array.isArray(response) ? response : response.result;
+      
+      if (!Array.isArray(result)) {
+        throw new Error('Invalid response format from API');
       }
-    });
-  }
+      
+      this.companies = result;
+      this.filteredCompanies = [...result];
+      this.isLoading = false;
+    },
+    error: (error: any) => {
+      console.error('Error loading companies:', error);
+      this.isLoading = false;
+    }
+  });
+} 
 
   applyFilter() {
     if (!this.searchQuery) {
@@ -52,8 +58,7 @@ export class ListCompany implements OnInit {
     } else {
       const query = this.searchQuery.toLowerCase();
       this.filteredCompanies = this.companies.filter(company => 
-        (company.companyName?.toLowerCase().includes(query)) ||
-        (company.companyCode?.toLowerCase().includes(query)) ||
+        (company.companyCode?.toUpperCase().includes(query)) ||
         (company.city?.toLowerCase().includes(query)) ||
         (company.state?.toLowerCase().includes(query)) ||
         (company.pin?.toString().includes(query)) ||

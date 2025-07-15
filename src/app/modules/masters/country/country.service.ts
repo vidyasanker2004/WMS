@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { ApiResponse, Country } from './country.model';
 
@@ -32,10 +32,12 @@ export class CountryService {
   }
 
  
-  getCountry(id: number): Observable<Country> {
-    
-    return this.http.get<Country>(`${this.apiUrl}/${id}`);
-  }
+getCountry(id: number): Observable<Country> {
+  return this.http.get<ApiResponse<Country>>(`${this.apiUrl}/${id}`)
+    .pipe(
+      map(response => Array.isArray(response.result) ? response.result[0] : response.result)
+    );
+}
 
   createCountry(country: Country): Observable<Country> {
    

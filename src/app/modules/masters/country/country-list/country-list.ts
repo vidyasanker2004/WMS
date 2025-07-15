@@ -14,12 +14,12 @@ import { Router } from '@angular/router';
   styleUrls: ['../../../../app.scss']
 })
 export class CountryListComponent implements OnInit {
-  countries: Countrymock[] = [];
+  countries: Country[] = [];
   isLoading: boolean = true;
   isDeleting: boolean = false;
   
   constructor(
-    private countryService: CountryServiceMock,
+    private countryService: CountryService,//CountryServiceMock
     private router: Router
   ) {}
 

@@ -25,6 +25,10 @@ export const appRoutes: Routes = [
       {
         path: 'company',
         loadChildren: () => import('./modules/masters/company/company.routes').then(m => m.companyRoutes)
+      },
+      {
+        path: 'user',
+        loadChildren: () => import('./modules/masters/users/user.routes').then(m => m.usersRoutes)
       }
     ]
   },

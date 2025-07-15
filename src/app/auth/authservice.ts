@@ -21,15 +21,15 @@ export class AuthService {
   return this.http.post<any>(`${environment.apiUrl}/Auth/login`, { username, password })
     .pipe(
       map(response => {
-        if (response.success && response.data?.token) {
-          return response.data;
+        if (response.isSuccess && response.result?.token) {
+          return response.result;
         }
         throw new Error(response.message || 'Invalid response from server');
       }),
-      tap(data => {
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('username', data.username);
-        localStorage.setItem('role', data.role);
+      tap(result => {
+        localStorage.setItem('token', result.token);
+        localStorage.setItem('username', result.username);
+        localStorage.setItem('role', result.role);
       }),
       catchError(error => {
         console.error('Login failed:', error);
