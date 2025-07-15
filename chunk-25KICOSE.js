@@ -1,0 +1,1 @@
+import{a}from"./chunk-TJDAFDFC.js";import{$a as o,C as e,z as i}from"./chunk-YMTWEJZX.js";var c=class t{constructor(n,r){this.auth=n;this.router=r}canActivate(){return this.auth.isAuthenticated()?!0:(this.router.navigate(["/login"]),!1)}static \u0275fac=function(r){return new(r||t)(e(a),e(o))};static \u0275prov=i({token:t,factory:t.\u0275fac,providedIn:"root"})};export{c as a};
